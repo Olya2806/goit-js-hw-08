@@ -20,13 +20,21 @@ function onInputChange() {
 feedbackForm.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
     event.preventDefault();
-    
-    console.log("email:", userEmail.value)
-    console.log("message:", userText.value); 
 
+     const user = {
+        email: userEmail.value,
+        message: userText.value
+     }
+    
+    if (userEmail.value === '') {
+        return
+    }
+        
+    console.log(user)
+     
     localStorage.removeItem('feedback-form-state');
   userEmail.value = '';
-  userText.value = '';
+    userText.value = '';
 
 }
 
